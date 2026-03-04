@@ -157,3 +157,6 @@ while($row = $result->fetch_assoc()){
 <?php
 }
 ?>
+    </div> <!-- close container -->
+</body>
+</html> <!-- close html structure -->
