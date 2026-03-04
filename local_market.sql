@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2026 at 04:22 AM
+-- Generation Time: Mar 04, 2026 at 05:51 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,6 +45,33 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `vendor_id`, `name`, `price`, `description`, `location`, `image`, `available`) VALUES
 (1, 2, 'Mangoes', 3.00, 'Fresh mangoes ', 'Orange Wallk', 'mangoes.jpg', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `contact` varchar(100) DEFAULT NULL,
+  `role` enum('vendor','customer') DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `contact`, `role`, `password`) VALUES
+(1, 'Stefanie', 'stefaniemagana23', 'vendor', '*0801D10217B06C5A9F32430C1A34E030D41A0257'),
+(2, 'Stefanie', 'stefaniemagana32@gmail.coom', 'vendor', '$2y$10$T/Krmx0XtZr0sA8iKEt6AuVLjWVNnzgCrt5wt.z6aQjCvo57Foc1O'),
+(3, '', 'stefaniemagana32@gmail.coom', 'vendor', NULL),
+(4, '', 'stefaniemagana32@gmail.coom', 'vendor', NULL),
+(5, '', 'stefaniemagana32@gmail.coom', 'vendor', NULL),
+(6, '', 'stefaniemagana32@gmail.coom', 'vendor', NULL),
+(7, '', 'stefaniemagana32@gmail.com', 'vendor', NULL);
+
 --
 -- Indexes for dumped tables
 --
@@ -57,6 +84,12 @@ ALTER TABLE `products`
   ADD KEY `vendor_id` (`vendor_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -65,6 +98,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
