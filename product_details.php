@@ -27,6 +27,12 @@ $row = $result->fetch_assoc(); // get data
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($row['name']); ?> - Details</title>
     <link rel="stylesheet" href="css/style.css"> <!-- link to styles -->
+    <style>
+        .product-detail img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 <div class="product-detail"> <!-- styled detail container -->
