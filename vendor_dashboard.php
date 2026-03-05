@@ -2,11 +2,12 @@
 session_start();
 include 'db/db.php';
 
-if(!isset($_SESSION['vendor_id'])){
-    header("Location: vendor_login.php");
+if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'vendor'){
+    header("Location: login.php");
+    exit;
 }
 
-$vendor_id = $_SESSION['vendor_id'];
+$vendor_id = $_SESSION['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,12 @@ $vendor_id = $_SESSION['vendor_id'];
 <head>
 
 <title>Vendor Dashboard</title>
+
+<!-- NAVIGATION -->
+<div style="background:#4CAF50;padding:15px;color:white;display:flex;justify-content:flex-end;align-items:center;border-radius:10px 10px 0 0;margin-bottom:20px;">
+    <span style="margin-right:auto;font-weight:bold;">Vendor Dashboard</span>
+    <a href="logout.php" style="color:white;text-decoration:none;font-weight:bold;">Logout</a>
+</div>
 
 <style>
 
@@ -341,6 +348,8 @@ while($row = $result->fetch_assoc()){
 <div class="price">$<?php echo $row['price']; ?></div>
 
 <div class="location"><?php echo $row['location']; ?></div>
+
+        <a href="product_detailsVD.php?id=<?php echo $row['id']; ?>" class="details-btn">View Details</a> 
 
 </div>
 
